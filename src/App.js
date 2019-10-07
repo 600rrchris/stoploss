@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import LoginPage from '../src/pages/LoginPage'
 import SignupPage  from '../src/pages/SignupPage/SignupPage'
 import userService from '../src/utils/userServices';
@@ -34,9 +33,10 @@ class App extends Component {
               handleSignup={this.handleSignupOrLogin}
             />
           }/>
-          <Route exact path='/login' render={() => 
+          <Route exact path='/login' render={({history}) => 
             <LoginPage
-              handleLogin
+              history={history}
+              handleLogin={this.handleSignupOrLogin}
             />
           }/>
       </Switch>
