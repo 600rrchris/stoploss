@@ -5,12 +5,14 @@ import LoginPage from '../src/pages/LoginPage'
 import SignupPage  from '../src/pages/SignupPage/SignupPage'
 import userService from '../src/utils/userServices';
 import NavBar from './components/NavBar/NavBar';
+import Stock from './components/Stocks/Stock'
 
 class App extends Component {
   constructor(){
     super();
     this.state = {
-      user: userService.getUser()
+      user: userService.getUser(),
+      symbol: null
     }
   }
   handleLogout = () => {
@@ -27,6 +29,9 @@ class App extends Component {
   <Route exact path='/' render={() =>
       <NavBar />    
   } />
+  <Route exact path='/Stocks' render={() =>
+      <Stock />    
+  } />
   <Route exact path='/signup' render={({ history }) => 
             <SignupPage
               history={history}
@@ -40,7 +45,10 @@ class App extends Component {
             />
           }/>
       </Switch>
+    <div>
+      <Stock />
     </div>
+    </div>   
   )
  }
 }
