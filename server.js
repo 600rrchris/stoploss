@@ -20,7 +20,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(favicon(path.join(__dirname, 'build', 'favicon.ico')));
 app.use(express.static(path.join(__dirname, 'build')));
-app.use('/api/users', require('./routes/api/users'))
+app.use('/api/users', require('./routes/api/users'));
+app.use('/api/stocks', require('./routes/stocks'));
 
 // Put API routes here, before the "catch all" route
 

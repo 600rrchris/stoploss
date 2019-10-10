@@ -3,16 +3,17 @@ const bcrypt = require('bcrypt');
 
 const SALT_ROUNDS = 6;
 
-const stockSchema = new Schema ({
-  ticker = String,
-  price = String,
-  volume = String
+const stockSchema = new mongoose.Schema ({
+  ticker: [String],
+  price: [String],
+  volume: [String]
 })
 
 const userSchema = new mongoose.Schema({
   name: String,
   email: {type: String, required: true, lowercase: true, unique: true},
-  password: String
+  password: String,
+  stocks: [stockSchema]
 }, {
   timestamps: true
 });

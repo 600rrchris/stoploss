@@ -5,7 +5,7 @@ import LoginPage from '../src/pages/LoginPage'
 import SignupPage  from '../src/pages/SignupPage/SignupPage'
 import userService from '../src/utils/userServices';
 import NavBar from './components/NavBar/NavBar';
-import Stock from './components/Stocks/Stock'
+import AddStock from './pages/AddStock'
 
 class App extends Component {
   constructor(){
@@ -29,8 +29,10 @@ class App extends Component {
   <Route exact path='/' render={() =>
       <NavBar />    
   } />
-  <Route exact path='/Stocks' render={() =>
-      <Stock />    
+  <Route exact path='/AddStock' render={() =>
+      <AddStock
+      user = { this.state.user }
+      />    
   } />
   <Route exact path='/signup' render={({ history }) => 
             <SignupPage
@@ -46,7 +48,7 @@ class App extends Component {
           }/>
       </Switch>
     <div>
-      <Stock />
+
     </div>
     </div>   
   )
