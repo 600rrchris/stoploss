@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import stock from '../../utils/alpha';
+import StocksParent from '../../pages/StocksParent';
 
 
 class Stock extends Component {
@@ -107,7 +108,6 @@ class Stock extends Component {
             </thead>
             <tbody>
               <td>
-                { this.props.stocks }
               </td>
             </tbody>
           </table>

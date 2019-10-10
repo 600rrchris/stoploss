@@ -9,16 +9,25 @@ module.exports = {
 
 
   function getAllStocks(req, res) {
-    Stock.find({})
-    .then((stocks) => {
-        res.status(200).json(stocks);
+    User.findById(req.body._id)
+    .then(s=>{
+        
+        res.status(200).json(s.stocks)
     })
-    .catch((err) => console.log(err));
-
   }
 
-  function deleteStock(req, res) {
-    console.log(res)
+  function deleteStock(req, res){
+    const userId = req.body.user._id
+    const stockId = req.body._id
+    User.findById(userId)
+    .then( s =>{
+      const stock = s.stocks.id(stockId)
+      s.stocks.remove(stock)
+      console.log('stock')
+      s.save(()=>{
+        res.status(201).json(stock)
+      })
+    })
   }
 
 

@@ -5,7 +5,7 @@ import LoginPage from '../src/pages/LoginPage'
 import SignupPage  from '../src/pages/SignupPage/SignupPage'
 import userService from '../src/utils/userServices';
 import NavBar from './components/NavBar/NavBar';
-import AddStock from './pages/AddStock'
+import StocksParent from './pages/StocksParent'
 
 class App extends Component {
   constructor(){
@@ -29,8 +29,8 @@ class App extends Component {
   <Route exact path='/' render={() =>
       <NavBar />    
   } />
-  <Route exact path='/AddStock' render={() =>
-      <AddStock
+  <Route exact path='/watchlist' render={() =>
+      <StocksParent
       user = { this.state.user }
       />    
   } />
